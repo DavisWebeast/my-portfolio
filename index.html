@@ -364,9 +364,9 @@
                     </div>
                     <div style="margin-top: 50px;">
                         <h2 style="color: #ff00e1;">Contact</h2>
-                        <P>+256741409436</P>
-                        <p><em>linkedln</em>@wimodavis</p>
-                        <p>were73521@gmail.com</p>
+                        <a href="tel:+256741409436">+256741409436</a>
+                        <p> <a href="malto:linkedln@wimodavis"><em>linkedln</em>@wimodavis</a></p>
+                        <p> <a href="malto:clermoishdavis@gmail.com">clermoishdavis@gmail.com</a></p>
                         <p>Kampala, Uganda</p>
                     </div>
                     <div>
@@ -437,19 +437,53 @@
                     <h2 style="text-align: center; font-size: 2.5rem; margin-top: 0;">SEND A <span style="color: var(--accent);">SIGNAL</span></h2>
                     <p style="text-align: center; opacity: 0.6; margin-bottom: 40px;">Let's discuss your next software order.</p>
                     
-                    <form action="mailto:davis.dev@engineer.com" method="post" enctype="text/plain" class="contact-form">
+                    <form onsubmit="openWhatsApp()" method="post" enctype="text/plain" class="contact-form">
                         <div class="form-row">
-                            <input type="text" name="name" placeholder="Full Name" required>
-                            <input type="email" name="email" placeholder="Email Address" required>
-                        </div>
-                        <textarea name="message" rows="5" placeholder="Project details / Order requirements..." required style="margin-bottom: 20px;"></textarea>
-                        <button type="submit" class="submit-btn">Initialize Transmission</button>
+                            <input class="fname" type="text" name="name" placeholder="Full Name" required>
+                            <input class="phonn" type="number" name="number" placeholder="Phone Number" required>
+                             <input class="gmail" type="email" name="email" placeholder="Email Address" required>
+                             <input class="datt" type="text" name="country" placeholder="Country" required>
+                    </div>
+                        <textarea name="addt_txt" rows="5" placeholder="Project details / Order requirements..." required style="margin-bottom: 20px;"></textarea>
+                        <button type="submit" class="submit-btn" >Initialize Transmission</button>
                     </form>
                 </div>
             </div>
         </section>
 
     </div>
+
+     <script> 
+            const myphoneNumber = 256741409436;
+    const fnam = document.querySelector('.fname');
+     const phonn = document.querySelector('.phonn');
+   const gmail =  document.querySelector(".gmail");
+      const datt = document.querySelector('.datt');
+       const addt_txt = document.querySelector('.addt_txt');
+      
+    
+ function openWhatsApp() {
+     const messagee = `
+       Order Request.
+       Name: ${fnam.value}
+       Phone Number: ${phonn.value}
+       Gmail: ${gmail.value}
+       Country: ${datt.value}
+       Describe project:  ${addt_txt.value}
+     `;
+     const encod = encodeURIComponent(messagee);
+    const url = `https://wa.me/${myphoneNumber}?text=${encod}`;
+    window.open(url, "_blank");
+      alert('ORDER REQUEST');
+}
+
+  function handleBooking(event) {
+       openWhatsApp();
+      // event.preventDefault();
+   
+      alert('ORDER REQUEST');
+    }
+    </script>
 
     <script id="vs" type="f">attribute vec2 position; void main() { gl_Position = vec4(position, 0.0, 1.0); }</script>
     <script id="fs" type="f">
@@ -499,6 +533,7 @@
         document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
     </script>
     <script src="about12.js"></script>
-  
+
+    
 </body>
 </html>
